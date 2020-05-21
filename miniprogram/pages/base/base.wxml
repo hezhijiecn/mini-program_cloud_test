@@ -1,0 +1,3 @@
+<!--pages/base/base.wxml-->
+<button size="mini" bindtap="Ontap">点击我加1</button> 
+<view>{{count}}</view>
