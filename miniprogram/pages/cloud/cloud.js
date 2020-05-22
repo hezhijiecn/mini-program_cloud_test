@@ -1,12 +1,11 @@
 // pages/cloud/cloud.js
 const db = wx.cloud.database();//初始化数据库
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    images:[]
   },
   insert :function(){
     // db.collection('user').add({
@@ -101,6 +100,76 @@ Page({
       console.log(res)
     }).catch(err=>{
       console.log(err)
+    })
+  },
+  // 云存储的函数
+  upload:function(){
+    //调用上传函数
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        wx.cloud.uploadFile({
+          cloudPath: new Date().getTime() + '.png', // 上传至云端的路径
+          filePath: tempFilePaths[0], // 小程序临时文件路径
+          success: res => {
+            // 返回文件 ID
+            console.log(res.fileID)
+            db.collection('image').add({
+              data:{
+                fileID:res.fileID
+              }
+            }).then(res=>{
+              console.log(res)
+            }).catch(err=>{
+              console.log(err)
+            })
+          },
+          fail: console.error
+        })
+      }
+    })
+  },
+  getImage:function(){
+    wx.cloud.callFunction({
+      name:'login'
+    }).then(res=>{
+      db.collection('image').where({
+        _openid:res.result.openid
+      }).get().then(res2=>{
+        console.log(res2.data)
+        this.setData({
+          images:res2.data
+        })
+      }).catch(err=>{
+        console.log(err)
+      })
+    }).catch(err=>{
+      console.log(err)
+    })
+  },
+  downloadImage:function(event){
+    wx.cloud.downloadFile({
+      fileID: event.target.dataset.fileid, // 文件 ID
+      success: res => {
+        // 返回临时文件路径
+        console.log(res.tempFilePath)
+        wx,wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          complete: (res) => {},
+          fail: (res) => {},
+          success: (res) => {
+            wx.showToast({
+              title: '保存成功',
+            })
+          },
+        })
+      },
+      fail: console.error
     })
   },
   /**

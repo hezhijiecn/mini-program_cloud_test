@@ -10,3 +10,10 @@
 <button bindtap="multiple">调用云函数multiple</button>
 <button bindtap="getopenId">获取openId</button>
 <button bindtap="Delete">批量删除</button>
+<view>云存储</view>
+<button bindtap="upload">上传图片</button>
+<button bindtap="getImage">展示图片</button>
+<view wx:for="{{images}}">
+  <image src="{{item.fileID}}"></image>
+  <button size="mini" data-fileid="{{item.fileID}}" bindtap="downloadImage">下载图片</button>
+</view>
