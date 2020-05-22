@@ -1,26 +1,32 @@
 {
   "pages": [
+    "pages/movie/movie",
     "pages/base/base",
     "pages/cloud/cloud"
+   
   ],
   "window": {
-    "backgroundColor": "#fff",
+    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#e54847",
     "navigationBarTitleText": "云开发 ",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#ccc",
-    "selectedColor": "#f00",
+    "color": "#000",
+    "selectedColor": "#e54847",
     "list": [{
+      "pagePath": "pages/movie/movie",
+      "text": "电影",
+      "iconPath":"images/film.png",
+      "selectedIconPath":"images/film-actived.png"
+    },
+    {
       "pagePath": "pages/base/base",
-      "text": "基础"
-    },{
-      "pagePath": "pages/cloud/cloud",
-      "text": "云开发"
+      "text": "我的",
+      "iconPath":"images/profile.png",
+      "selectedIconPath":"images/profile-actived.png"
     }]
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "sitemapLocation": "sitemap.json"
 }

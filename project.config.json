@@ -4,10 +4,24 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
 	},
 	"appid": "wxe6623af6fd72c975",
 	"projectname": "cloud_test",
@@ -48,6 +62,13 @@
 					"id": -1,
 					"name": "cloud",
 					"pathName": "pages/cloud/cloud",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "movie",
+					"pathName": "pages/movie/movie",
 					"scene": null
 				}
 			]
