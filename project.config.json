@@ -69,6 +69,21 @@
 					"id": -1,
 					"name": "movie",
 					"pathName": "pages/movie/movie",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "movieid=1291546",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "base",
+					"pathName": "pages/base/base",
+					"query": "",
 					"scene": null
 				}
 			]

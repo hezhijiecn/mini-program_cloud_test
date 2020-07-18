@@ -2,7 +2,8 @@
   "pages": [
     "pages/movie/movie",
     "pages/base/base",
-    "pages/cloud/cloud"
+    "pages/cloud/cloud",
+    "pages/comment/comment"
    
   ],
   "window": {

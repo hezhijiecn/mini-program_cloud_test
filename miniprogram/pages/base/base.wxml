@@ -1,7 +1,7 @@
 <!--pages/base/base.wxml-->
 <!-- <button size="mini" bindtap="Ontap">点击我加1</button>
 <view>{{count}}</view> -->
-<button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<!-- <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
 <block wx:else>
 	<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
 </block>
@@ -9,7 +9,7 @@
 	<view class="userinfo">用户名:{{userInfo.nickName}}</view>
 </block>
 <block >
-	<view wx:if="{{userInfo.gender}}=1" class="userinfo">性别:男</view>
+	<view wx:if="{{userInfo.gender==1}}" class="userinfo">性别:男</view>
 	<view wx:else class="userinfo">性别:女</view>
 </block>
 <block>
@@ -17,4 +17,22 @@
 </block>
 <block>
 	<view class="userinfo">openid:{{openid}}</view>
+</block> -->
+
+<view class='profile'>
+  <view class="profile-img">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <open-data type="userNickName" class="profile-name"></open-data>
+</view>
+<!-- <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">获取用户信息</button> -->
+<block >
+	<view wx:if="{{userInfo.gender==1}}" class="userinfo">性别:男</view>
+	<view wx:else class="userinfo">性别:女</view>
 </block>
+<block>
+	<view class="userinfo">城市:{{userInfo.city}}</view>
+</block>
+<block>
+	<view class="userinfo">openid:{{openid}}</view>
+</block> 

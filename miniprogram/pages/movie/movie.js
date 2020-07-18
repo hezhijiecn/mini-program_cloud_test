@@ -54,6 +54,11 @@ Page({
       wx.hideLoading();
     })
   },
+  gotoComment:function(event){
+    wx.navigateTo({
+      url: `../comment/comment?movieid=${event.target.dataset.movieid}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
